@@ -1,5 +1,5 @@
 # Customer Churn Prediction
-[](images/1981-digital-yqaskj8lQBE-unsplash-copy.jpg)
+![](images/1981-digital-yqaskj8lQBE-unsplash-copy.jpg)
 ###### photo by [1981 Digital](https://unsplash.com/@1981digital) on [Unsplash](https://unsplash.com)
 Customer retention is essential for any live-service and subscription-based business models as this greatly impacts company revenue and growth. When a product or service fails to meet customer expectations or an alternative becomes more compelling, customers may discontinue their subscription service with the company, creating customer churn. The focus of this repository is the development and training of a machine learning algorithm that can predict if a customer will churn based off user usage data. The data used for model training is the Customer Churn Dataset found on Kaggle.com, uploaded by Kaggle user Muhammad Shahid Azeem. In this dataset there are over 500k rows of customer data usage with each record including features such as customer age, gender, tenure, usage frequency, support calls, payment delay, subscription type, contract length, total spend, and last interaction. The data also contains a churn label feature that indicates whether the customer has churned (1) or not (0). In this repository, the final model used is a Random Forest Classifier as this model outperformed all other models at the base level, with a CNN model being a close second. Various evaluation metrics highlights the model’s performance: for “not churn,” the model achieved high precision (0.99) but lower recall (0.86) and an F-score of 0.92; for “churn,” the model scored a precision of 0.90, a perfect recall (1.00), and an F-score of 0.94. Despite heavy data imbalance, the model is able to reliably predict customer churn and retention, that said, further fine-tuning and data balancing could possibly further enhance overall model performance and predictive capabilities.
 
@@ -26,10 +26,10 @@ The box plot that shows how spread out the data is with payment delay and custom
 The second plot is a simple bar plot that shows us the age distribution in the data. From this plot we can see that the majority of customers are between the ages of 18 - 50 with the greater majority being between 40 - 50 years of age, and ages 51 - 65 being the minority age group. The third plot is a continuation of the second plot as this plot shows us age to churn ratio. From this plot we can see customers between the ages of 30 - 50 are less likely to end service, while those between the ages of 18 - 29 and 51 - 65 are more likely to churn.
 
 The final plot shows the "churn" to "not churn" frequency amongst genders found in the dataset. This plot shows us that between male and female customers, female customers are much more likely to churn while male customers are less likely to churn.
-[](images/boxplt_payment_churn_dist.jpeg)
-[](images/barplt_age_distribution.jpeg)
-[](images/countplt_age_churn_dist.jpeg)
-[](images/countplt_gender_churn_dist.jpeg)
+![](images/boxplt_payment_churn_dist.jpeg)
+![](images/barplt_age_distribution.jpeg)
+![](images/countplt_age_churn_dist.jpeg)
+![](images/countplt_gender_churn_dist.jpeg)
 
 ## Data Preperation
 To prepare the data I first set my X and y variables, for the X variable I kept all features except for the “churn” feature as this is our y variable, and “customerid” as this feature is a unique identifier and essentially holds no value. For the train and test split I split the data to be 80% as training data and 20% as test data, I also set the random state seed to 42 for consistent results for each run of the notebook. After the split I create copies of the training and testing sets of data to use for pipeline development. To finalize the data preparation, I use two functions from the Flatiron school to encode the categorical features found in the data and transforms a feature into multiple columns of 1s and 0s, I then create a function that concats these new features into our dataframe while dropping the old categorical feature columns.
